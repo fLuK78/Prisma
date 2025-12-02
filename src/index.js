@@ -5,12 +5,14 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 const roomRoutes = require('./routes/room.route');
+const userRoutes = require('./routes/user.route.js');
 
 app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/rooms', roomRoutes);
+app.use('/users', userRoutes);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Room Booking API');
